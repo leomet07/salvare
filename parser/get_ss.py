@@ -10,6 +10,7 @@ from selenium.webdriver.common.keys import Keys
 import cv2
 chrome_options = Options()
 chrome_options.add_argument("--headless")
+chrome_options.add_argument('log-level=3')
 driver = webdriver.Chrome(chrome_options=chrome_options)
 driver.set_window_size(1820, 980)
 
