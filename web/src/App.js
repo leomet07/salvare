@@ -43,6 +43,15 @@ export default class App extends React.Component {
 											About
 										</Link>
 									</li>
+									<li className="nav-item">
+										<a
+											className="nav-link"
+											target="_blank"
+											href="https://github.com/leomet07/salvare"
+										>
+											GitHub
+										</a>
+									</li>
 								</ul>
 							</div>
 						</div>

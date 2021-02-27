@@ -12,10 +12,13 @@ load_dotenv()
 shutil.rmtree('images/')
 os.mkdir("images")
 
+print("Date format is YYYY-MM-DD")
+print("An example is 2021-2-18")
 
+date_chosen = input("Please input a date with that format: ")
 url = "https://api.nasa.gov/neo/rest/v1/feed"
 
-querystring = {"start_date":"2021-2-18","api_key":os.getenv("API_KEY")}
+querystring = {"start_date":date_chosen,"api_key":os.getenv("API_KEY")}
 
 payload = ""
 response = requests.request("GET", url, data=payload, params=querystring)

@@ -34,6 +34,7 @@ export default class Home extends React.Component {
 					key={occurence.neo_reference_id}
 					name={occurence.name}
 					img={occurence.graph_ss_url}
+					estimated_diameter={occurence.estimated_diameter}
 					desc="asteroid 4"
 					className="asteroid_displayer"
 				/>

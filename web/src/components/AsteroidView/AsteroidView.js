@@ -6,9 +6,13 @@ export default class AsteroidView extends React.Component {
 
 		let close_approach_date_full = this.props.close_approach_data[0]
 			.close_approach_date_full;
-		let dateRegex = /(\d\d\d\d)-(...)-(\d\d) (\d\d:\d\d)/;
-		let regexResult = dateRegex.test(close_approach_date_full);
+		let year = close_approach_date_full.slice(0, 4);
+		let month = close_approach_date_full.slice(5, 8);
+		let date = close_approach_date_full.slice(9, 11);
+		let time = close_approach_date_full.slice(12, close_approach_date_full.length);
 		console.log(close_approach_date_full);
+		close_approach_date_full =
+			month + " " + date + ", " + year + " at " + time;
 		return (
 			<div className="col container_a col-sm-3">
 				<div className="card text-black bg-dark">
@@ -21,6 +25,10 @@ export default class AsteroidView extends React.Component {
 						<h5 className="card-title occurence_name">
 							{this.props.name}
 						</h5>
+						<h5>
+							Closest Approach date: &nbsp;
+							{close_approach_date_full}
+						</h5>
 						<p className="card-text" style={{ paddingTop: "10px" }}>
 							<button
 								className="btn btn-primary"
@@ -31,10 +39,6 @@ export default class AsteroidView extends React.Component {
 								Learn More
 							</button>
 						</p>
-						<h5>
-							Closest Approach date: &nbsp;
-							{close_approach_date_full}
-						</h5>
 					</div>
 				</div>
 				<div
@@ -92,6 +96,29 @@ export default class AsteroidView extends React.Component {
 											.miss_distance.kilometers
 									}
 									&nbsp;kilometers
+								</p>
+								<p>
+									Estimated Diameter: &nbsp;
+									{
+										this.props.estimated_diameter.miles
+											.estimated_diameter_min
+									}
+									&nbsp;-&nbsp;
+									{
+										this.props.estimated_diameter.miles
+											.estimated_diameter_max
+									}
+									&nbsp;kilometers/&nbsp;
+									{
+										this.props.estimated_diameter.kilometers
+											.estimated_diameter_min
+									}
+									&nbsp;-&nbsp;
+									{
+										this.props.estimated_diameter.kilometers
+											.estimated_diameter_max
+									}
+									&nbsp;miles
 								</p>
 							</div>
 							<div className="modal-footer">
