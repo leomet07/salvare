@@ -4,6 +4,6 @@ cd web
 
 npm run build
 
-firebase deploy --only hosting
+firebase deploy 
 
 cd ..

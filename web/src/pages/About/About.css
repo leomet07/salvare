@@ -2,8 +2,11 @@ body {
 	background-image: url("https://sm.mashable.com/mashable_in/photo/default/nasa-galaxy_9pu4.jpg");
 }
 
-.header {
+h2 {
 	text-align: center;
 	padding-top: 30px;
 	font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;
+}
+.About {
+	text-align: center;
 }

@@ -29,6 +29,7 @@ export default class Home extends React.Component {
 			console.log(occurence);
 			occurences_ui.push(
 				<AsteroidView
+					close_approach_data={occurence.close_approach_data}
 					key={occurence.neo_reference_id}
 					name={occurence.name}
 					img={occurence.graph_ss_url}
@@ -39,7 +40,6 @@ export default class Home extends React.Component {
 		}
 		return (
 			<div>
-				
 				<div
 					style={{
 						paddingTop: "50px",

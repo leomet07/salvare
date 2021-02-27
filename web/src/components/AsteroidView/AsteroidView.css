@@ -1,6 +1,13 @@
 .container_a {
-	width: 100px;
-}
-.occurence_name {
 	color: white;
+	margin-top: 15px;
+}
+.modal-fullscreen {
+	color: black;
+}
+#exampleModal {
+	text-align: center;
+}
+.modal-body p {
+	margin-top: 5px;
 }

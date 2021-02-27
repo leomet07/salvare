@@ -33,7 +33,7 @@ dump.txt
 
 *.log
 
-parser/*.png
+
 
 *.exe
 
@@ -44,3 +44,5 @@ parser/images/
 *.cache
 
 admin.json
+
+paint_test.py
