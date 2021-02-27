@@ -20,6 +20,13 @@ def get_ss_by_url(url, filename):
     show_graph.click()
     time.sleep(2)
 
+    # delete space hogging table that resizes wrong occasionallys
+    table = driver.find_element_by_xpath('/html/body/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr[6]/td/table/tbody/tr/td/table[5]')
+    driver.execute_script("""
+    var element = arguments[0];
+    element.parentNode.removeChild(element);
+    """, table)
+
     # driver.save_screenshot("whole1.png")
     driver.save_screenshot(filename)
 

@@ -23,6 +23,7 @@ for key in near_earth_objects:
 		if object["is_potentially_hazardous_asteroid"]:
 			# print(object)
 			jpl_url = object["nasa_jpl_url"]
+			print(jpl_url)
 			get_ss_by_url(jpl_url, os.path.join("images" , str(count ) + ".png"))
 			print("count: ", count)
 			count += 1

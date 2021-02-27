@@ -6,6 +6,20 @@ const fileUpload = require("express-fileupload");
 const morgan = require("morgan");
 const helmet = require("helmet");
 const cors = require("cors");
+const { v4: uuid } = require("uuid");
+const fs = require("fs");
+require("dotenv").config();
+
+var admin = require("firebase-admin");
+
+var serviceAccount = require("./admin.json");
+
+admin.initializeApp({
+	credential: admin.credential.cert(serviceAccount),
+	storageBucket: "salvare-fullstack.appspot.com",
+});
+
+var bucket = admin.storage().bucket();
 
 // enable files upload
 app.use(
@@ -37,20 +51,31 @@ app.post("/post", async (req, res) => {
 			let file = req.files.file;
 
 			//Use the mv() method to place the file in upload directory (i.e. "uploads")
-			file.mv("./uploads/" + file.name);
+			const temp_filename = uuid() + "." + file.name.split(".").pop();
+			const temp_path = "./uploads/" + temp_filename;
+			file.mv(temp_path);
 
+			const data = await bucket.upload(temp_path);
+			// console.log("uploaded: ", data);
+
+			// await fs.promises.unlink(temp_path);
+			const img_url =
+				"https://storage.googleapis.com/salvare-fullstack.appspot.com/" +
+				temp_filename;
 			//send response
 			res.send({
 				status: true,
 				message: "File is uploaded",
+				url: img_url,
 				data: {
-					name: file.name,
+					name: temp_filename,
 					mimetype: file.mimetype,
 					size: file.size,
 				},
 			});
 		}
 	} catch (err) {
+		console.error(err);
 		res.status(500).send(err);
 	}
 });
