@@ -12,7 +12,7 @@ const OccurrenceSchema = new mongoose.Schema({
 	},
 	neo_reference_id: {
 		type: Number,
-		min: 9999999,
+		min: 1,
 		max: 99999999,
 		required: true,
 	},
