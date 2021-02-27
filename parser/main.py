@@ -12,9 +12,10 @@ load_dotenv()
 shutil.rmtree('images/')
 os.mkdir("images")
 
+
 url = "https://api.nasa.gov/neo/rest/v1/feed"
 
-querystring = {"start_date":"2021-2-18","api_key":os.getenv("API_KEY")}
+querystring = {"start_date":"2021-2-27","api_key":os.getenv("API_KEY")}
 
 payload = ""
 response = requests.request("GET", url, data=payload, params=querystring)

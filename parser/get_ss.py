@@ -8,6 +8,13 @@ from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.keys import Keys
 import cv2
+
+
+from PIL import Image
+overlayright = Image.open("overlayright.png")
+overlayleft = Image.open("overlayleft.png")
+
+
 chrome_options = Options()
 chrome_options.add_argument("--headless")
 chrome_options.add_argument('log-level=3')
@@ -37,7 +44,12 @@ def get_ss_by_url(url, filename):
     w = 892
     img = cv2.imread(filename)[y:y+h, x:x+w]
 
-    cv2.imwrite(filename, img)
+    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+    im_pil = Image.fromarray(img)
+
+    im_pil.paste(overlayright, (709,0))
+    im_pil.paste(overlayleft, (0,0))
+    im_pil.save(filename)
 
 if __name__ == "__main__":
     url = "https://ssd.jpl.nasa.gov/sbdb.cgi?sstr=54100581"
