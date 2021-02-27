@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import About from "./pages/About/About";
 import Home from "./pages/Home/Home";
+
 export default class App extends React.Component {
 	render() {
 		return (
@@ -9,10 +10,7 @@ export default class App extends React.Component {
 				<div>
 					<nav className="navbar navbar-expand-lg navbar-dark bg-dark">
 						<div className="container-fluid">
-							<Link
-								className="navbar-brand"
-								to="/"
-							>
+							<Link className="navbar-brand" to="/">
 								Salvare
 							</Link>
 							<button
@@ -34,7 +32,7 @@ export default class App extends React.Component {
 									<li className="nav-item">
 										<Link
 											aria-current="page"
-											className="nav-link active"
+											className="nav-link"
 											to="/"
 										>
 											Home
@@ -46,9 +44,12 @@ export default class App extends React.Component {
 										</Link>
 									</li>
 									<li className="nav-item">
-										<a className="nav-link" href="#">
-											Github
-										</a>
+										<Link
+											className="nav-link"
+											to="/asteroids"
+										>
+											Asteroids
+										</Link>
 									</li>
 								</ul>
 							</div>
@@ -59,6 +60,10 @@ export default class App extends React.Component {
 					<Switch>
 						<Route path="/about">
 							<About />
+						</Route>
+
+						<Route path="/asteroids">
+							<></>
 						</Route>
 
 						<Route path="/">
