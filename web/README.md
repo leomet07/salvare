@@ -1,4 +1,11 @@
-# Getting Started with Create React App
+# Salvare React Frontend
+
+The frontend was made using React. It is responsible for
+sending requests from users to the backend and
+retrieving relevant saved data for the user.
+CSS is also used to change the appearence of
+the webpage. This includes fonts, colors, and
+placement of data.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
