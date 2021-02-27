@@ -5,26 +5,31 @@ router.get("/get_occurrences", async (req, res) => {
 	res.json(occurrences);
 });
 router.post("/create_occurrences", async (req, res) => {
-	const neo_reference_id = req.body.neo_reference_id;
-	// Needs to be unique for every neo_reference_id
-	const isExisting = await Occurrence.find({
-		neo_reference_id: neo_reference_id,
-	});
-	let schema;
+	try {
+		const neo_reference_id = req.body.neo_reference_id;
+		// Needs to be unique for every neo_reference_id
+		const isExisting = await Occurrence.find({
+			neo_reference_id: neo_reference_id,
+		});
+		let schema;
 
-	if (isExisting.length > 0) {
-		schema = await Occurrence.findOneAndUpdate(
-			{ neo_reference_id: neo_reference_id },
-			req.body,
-			{
-				upsert: true,
-			}
-		);
-	} else {
-		schema = await Occurrence.create(req.body);
+		if (isExisting.length > 0) {
+			schema = await Occurrence.findOneAndUpdate(
+				{ neo_reference_id: neo_reference_id },
+				req.body,
+				{
+					upsert: true,
+				}
+			);
+		} else {
+			schema = await Occurrence.create(req.body);
+		}
+
+		const occurrence_saved = await schema.save();
+		res.json({ created: true, occurrence_saved: occurrence_saved });
+	} catch (err) {
+		console.log(err);
+		res.statusCode(500).send({ message: "error" });
 	}
-
-	const occurrence_saved = await schema.save();
-	res.json(occurrence_saved);
 });
 module.exports = router;

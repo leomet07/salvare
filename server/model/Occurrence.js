@@ -39,7 +39,7 @@ const OccurrenceSchema = new mongoose.Schema({
 			orbiting_body: String,
 		},
 	],
-	graph_ss_url: { type: mongoose.SchemaTypes.Url },
+	graph_ss_url: { type: mongoose.SchemaTypes.Url, required: true },
 });
 
 const OccurrenceModel = mongoose.model("Occurrence", OccurrenceSchema);
