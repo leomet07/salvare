@@ -6,7 +6,8 @@
 		"express-fileupload": "^1.2.1",
 		"firebase-admin": "^9.5.0",
 		"helmet": "^4.4.1",
-		"mongoose": "^5.11.18",
+		"mongoose": "^5.11.15",
+		"mongoose-type-url": "^2.1.0",
 		"morgan": "^1.10.0",
 		"node-fetch": "^2.6.1",
 		"uuid": "^8.3.2"
