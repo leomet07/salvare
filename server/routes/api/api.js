@@ -2,7 +2,15 @@ const router = require("express").Router();
 const { v4: uuid } = require("uuid");
 const fs = require("fs");
 const bucket = require("../../bucket");
-
+const uploadDiskImage = async (file) => {
+	const { name, buffer } = file;
+	const fileHandle = bucket.file(name);
+	const [fileExists] = await fileHandle.exists();
+	if (fileExists === false) {
+		return fileHandle.save(buffer);
+	}
+	return new Promise((resolve, reject) => resolve(name));
+};
 router.use("/db/", require("./db/db"));
 
 router.post("/upload_ss", async (req, res) => {
@@ -15,26 +23,18 @@ router.post("/upload_ss", async (req, res) => {
 		} else {
 			//Use the name of the input field (i.e. "avatar") to retrieve the uploaded file
 			let file = req.files.file;
-			//Use the mv() method to place the file in upload directory (i.e. "uploads")
 			const temp_filename = uuid() + "." + file.name.split(".").pop();
-			const temp_path = "../../uploads/" + temp_filename;
-			file.mv(temp_path);
-			const data = await bucket.upload(temp_path);
-			// console.log("uploaded: ", data);
-			// await fs.promises.unlink(temp_path);
-			const img_url =
-				"https://storage.googleapis.com/salvare-fullstack.appspot.com/" +
-				temp_filename;
-			//send response
+
+			const imageBuffer = Buffer.from(file.data);
+
+			bucket.file(temp_filename).save(imageBuffer);
+			const publicUrl = `https://storage.googleapis.com/${bucket.name}/${temp_filename}`;
+			console.log(publicUrl);
+
 			res.send({
 				status: true,
 				message: "File is uploaded",
-				url: img_url,
-				data: {
-					name: temp_filename,
-					mimetype: file.mimetype,
-					size: file.size,
-				},
+				url: publicUrl,
 			});
 		}
 	} catch (err) {
