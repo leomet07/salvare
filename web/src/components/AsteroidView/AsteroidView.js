@@ -3,7 +3,12 @@ import "./AsteroidView.css";
 export default class AsteroidView extends React.Component {
 	render() {
 		console.log(this.props);
-		console.log(this.props.close_approach_data[0].close_approach_date_full);
+
+		let close_approach_date_full = this.props.close_approach_data[0]
+			.close_approach_date_full;
+		let dateRegex = /(\d\d\d\d)-(...)-(\d\d) (\d\d:\d\d)/;
+		let regexResult = dateRegex.test(close_approach_date_full);
+		console.log(close_approach_date_full);
 		return (
 			<div className="col container_a col-sm-3">
 				<div className="card text-black bg-dark">
@@ -28,10 +33,7 @@ export default class AsteroidView extends React.Component {
 						</p>
 						<h5>
 							Closest Approach date: &nbsp;
-							{
-								this.props.close_approach_data[0]
-									.close_approach_date_full
-							}
+							{close_approach_date_full}
 						</h5>
 					</div>
 				</div>
@@ -70,16 +72,26 @@ export default class AsteroidView extends React.Component {
 										this.props.close_approach_data[0]
 											.relative_velocity.miles_per_hour
 									}
-									&nbsp;mph
-								</p>
-								<p>
-									Relative Velocity: &nbsp;
+									&nbsp;mph/&nbsp;
 									{
 										this.props.close_approach_data[0]
 											.relative_velocity
 											.kilometers_per_hour
 									}
 									&nbsp;kph
+								</p>
+								<p>
+									Miss Distance: &nbsp;
+									{
+										this.props.close_approach_data[0]
+											.miss_distance.miles
+									}
+									&nbsp;miles/&nbsp;
+									{
+										this.props.close_approach_data[0]
+											.miss_distance.kilometers
+									}
+									&nbsp;kilometers
 								</p>
 							</div>
 							<div className="modal-footer">

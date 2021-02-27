@@ -27,6 +27,7 @@ export default class Home extends React.Component {
 		const occurences_ui = [];
 		for (let occurence of this.state.occurences) {
 			console.log(occurence);
+
 			occurences_ui.push(
 				<AsteroidView
 					close_approach_data={occurence.close_approach_data}

@@ -5,7 +5,7 @@ export default function About() {
 			<div className="header" style={{ color: "white" }}>
 				<h2>About Salvare</h2>
 				<h4>
-					Salvare is a website dedicated to warning users about nearby
+					Salvare is a webapp dedicated to warning users about nearby
 					asteroids.
 				</h4>
 				<h4>
@@ -22,7 +22,7 @@ export default function About() {
 					but Salvare reports the ones we should be worried about!
 				</h4>
 
-				<h4> </h4>
+				<h4></h4>
 				<h4>
 					Choose to observe data from our selection of dangerously
 					close asteroids.
@@ -36,6 +36,9 @@ export default function About() {
 					path.
 				</h4>
 				<h4></h4>
+				<h4>
+					Credit to NASA for Asteroid API: https://api.nasa.gov/
+				</h4>
 			</div>
 		</div>
 	);

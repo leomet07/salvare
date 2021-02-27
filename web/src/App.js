@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import About from "./pages/About/About";
 import Home from "./pages/Home/Home";
-
+import NotFound from "./pages/NotFound/NotFound";
 export default class App extends React.Component {
 	render() {
 		return (
@@ -43,14 +43,6 @@ export default class App extends React.Component {
 											About
 										</Link>
 									</li>
-									<li className="nav-item">
-										<Link
-											className="nav-link"
-											to="/asteroids"
-										>
-											Asteroids
-										</Link>
-									</li>
 								</ul>
 							</div>
 						</div>
@@ -62,13 +54,11 @@ export default class App extends React.Component {
 							<About />
 						</Route>
 
-						<Route path="/asteroids">
-							<></>
-						</Route>
-
 						<Route path="/">
 							<Home />
 						</Route>
+
+						<Route component={NotFound} />
 					</Switch>
 				</div>
 			</Router>
