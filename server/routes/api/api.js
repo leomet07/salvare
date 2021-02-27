@@ -31,7 +31,7 @@ router.post("/upload_ss", async (req, res) => {
 			const publicUrl = `https://storage.googleapis.com/${bucket.name}/${temp_filename}`;
 			console.log(publicUrl);
 
-			res.send({
+			res.json({
 				status: true,
 				message: "File is uploaded",
 				url: publicUrl,
