@@ -1,6 +1,11 @@
 const mongoose = require("mongoose");
 require("mongoose-type-url");
 
+const SizeRangeSchema = new mongoose.Schema({
+	estimated_diameter_min: String,
+	estimated_diameter_max: String,
+});
+
 const OccurrenceSchema = new mongoose.Schema({
 	name: {
 		type: String,
@@ -40,6 +45,12 @@ const OccurrenceSchema = new mongoose.Schema({
 		},
 	],
 	graph_ss_url: { type: mongoose.SchemaTypes.Url, required: true },
+	estimated_diameter: {
+		kilometers: { type: SizeRangeSchema },
+		meters: { type: SizeRangeSchema },
+		miles: { type: SizeRangeSchema },
+		feet: { type: SizeRangeSchema },
+	},
 });
 
 const OccurrenceModel = mongoose.model("Occurrence", OccurrenceSchema);
