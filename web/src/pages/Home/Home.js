@@ -8,6 +8,7 @@ export default class Home extends React.Component {
 			occurences: [],
 		};
 	}
+
 	async componentDidMount() {
 		const response = await fetch(
 			"https://salvare-backend.herokuapp.com/api/v1/db/get_occurrences",
@@ -26,7 +27,7 @@ export default class Home extends React.Component {
 	render() {
 		const occurences_ui = [];
 		for (let occurence of this.state.occurences) {
-			console.log(occurence);
+			// console.log(occurence);
 
 			occurences_ui.push(
 				<AsteroidView
