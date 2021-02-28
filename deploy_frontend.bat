@@ -2,8 +2,6 @@
 
 cd web
 
-npm run build
-
-firebase deploy 
+npm run build && firebase deploy
 
 cd ..
