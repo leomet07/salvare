@@ -12,3 +12,13 @@
 .modal-body h3 {
 	margin-top: 5px;
 }
+.modal-body {
+	word-break: break-all;
+}
+.big_graph {
+	width: 80%;
+	max-width: 690px;
+}
+.display_texts {
+	margin-top: 10px;
+}

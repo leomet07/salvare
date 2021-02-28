@@ -78,61 +78,70 @@ export default class AsteroidView extends React.Component {
 								style={{ color: "black" }}
 							>
 								<h2>{this.props.name}</h2>
-								<img alt="big_graph" src={this.props.img}></img>
-								<h4>
-									Closest Approach date: &nbsp;
-									{close_approach_date_full}
-								</h4>
-								<h4>
-									Relative Velocity: &nbsp;
-									{
-										this.props.close_approach_data[0]
-											.relative_velocity.miles_per_hour
-									}
-									&nbsp;mph/&nbsp;
-									{
-										this.props.close_approach_data[0]
-											.relative_velocity
-											.kilometers_per_hour
-									}
-									&nbsp;kph
-								</h4>
-								<h4>
-									Miss Distance: &nbsp;
-									{
-										this.props.close_approach_data[0]
-											.miss_distance.miles
-									}
-									&nbsp;miles/&nbsp;
-									{
-										this.props.close_approach_data[0]
-											.miss_distance.kilometers
-									}
-									&nbsp;kilometers
-								</h4>
-								<h4>
-									Estimated Diameter: &nbsp;
-									{
-										this.props.estimated_diameter.miles
-											.estimated_diameter_min
-									}
-									&nbsp;-&nbsp;
-									{
-										this.props.estimated_diameter.miles
-											.estimated_diameter_max
-									}
-									&nbsp;kilometers/&nbsp;
-									{
-										this.props.estimated_diameter.kilometers
-											.estimated_diameter_min
-									}
-									&nbsp;-&nbsp;
-									{
-										this.props.estimated_diameter.kilometers
-											.estimated_diameter_max
-									}
-									&nbsp;miles
-								</h4>
+								<img
+									alt="big_graph"
+									class="big_graph"
+									src={this.props.img}
+								></img>
+								<div class="display_texts">
+									<h5>
+										Closest Approach date: &nbsp;
+										{close_approach_date_full}
+									</h5>
+									<h5>
+										Relative Velocity: &nbsp;
+										{
+											this.props.close_approach_data[0]
+												.relative_velocity
+												.miles_per_hour
+										}
+										&nbsp;mph/&nbsp;
+										{
+											this.props.close_approach_data[0]
+												.relative_velocity
+												.kilometers_per_hour
+										}
+										&nbsp;kph
+									</h5>
+									<h5>
+										Miss Distance: &nbsp;
+										{
+											this.props.close_approach_data[0]
+												.miss_distance.miles
+										}
+										&nbsp;miles/&nbsp;
+										{
+											this.props.close_approach_data[0]
+												.miss_distance.kilometers
+										}
+										&nbsp;kilometers
+									</h5>
+									<h5>
+										Estimated Diameter: &nbsp;
+										{
+											this.props.estimated_diameter.miles
+												.estimated_diameter_min
+										}
+										&nbsp;-&nbsp;
+										{
+											this.props.estimated_diameter.miles
+												.estimated_diameter_max
+										}
+										&nbsp;kilometers/&nbsp;
+										{
+											this.props.estimated_diameter
+												.kilometers
+												.estimated_diameter_min
+										}
+										&nbsp;-&nbsp;
+										{
+											this.props.estimated_diameter
+												.kilometers
+												.estimated_diameter_max
+										}
+										&nbsp;miles
+									</h5>
+								</div>
 							</div>
 							<div className="modal-footer">
 								<button
