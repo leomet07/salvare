@@ -49,7 +49,9 @@ export default class Home extends React.Component {
 						paddingRight: "40px",
 					}}
 				>
-					<div className="row">{occurences_ui}</div>
+					<div id="all_occurences_container" className="row">
+						{occurences_ui}
+					</div>
 				</div>
 			</div>
 		);

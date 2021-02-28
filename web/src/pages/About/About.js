@@ -5,7 +5,7 @@ export default function About() {
 			<div className="header" style={{ color: "white" }}>
 				<h2>About Salvare</h2>
 				<h4>
-					Salvare is a webapp dedicated to warning users about nearby
+					Salvare is a web app dedicated to warning users about nearby
 					asteroids.
 				</h4>
 				<h4>
@@ -48,6 +48,11 @@ export default function About() {
 					<a href="https://ssd.jpl.nasa.gov/sbdb.cgi" target="_blank">
 						JPL
 					</a>
+				</h4>
+				<h4>
+					Website hosted on firebase (wrapper of google cloud
+					platform), and generated graphs are saved to a google cloud
+					storage bucket.
 				</h4>
 			</div>
 		</div>

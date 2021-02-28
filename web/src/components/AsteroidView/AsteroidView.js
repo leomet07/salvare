@@ -9,7 +9,10 @@ export default class AsteroidView extends React.Component {
 		let year = close_approach_date_full.slice(0, 4);
 		let month = close_approach_date_full.slice(5, 8);
 		let date = close_approach_date_full.slice(9, 11);
-		let time = close_approach_date_full.slice(12, close_approach_date_full.length);
+		let time = close_approach_date_full.slice(
+			12,
+			close_approach_date_full.length
+		);
 		console.log(close_approach_date_full);
 		close_approach_date_full =
 			month + " " + date + ", " + year + " at " + time;
@@ -70,7 +73,7 @@ export default class AsteroidView extends React.Component {
 							>
 								<h2>{this.props.name}</h2>
 								<img src={this.props.img}></img>
-								<p>
+								<h4>
 									Relative Velocity: &nbsp;
 									{
 										this.props.close_approach_data[0]
@@ -83,8 +86,8 @@ export default class AsteroidView extends React.Component {
 											.kilometers_per_hour
 									}
 									&nbsp;kph
-								</p>
-								<p>
+								</h4>
+								<h4>
 									Miss Distance: &nbsp;
 									{
 										this.props.close_approach_data[0]
@@ -96,8 +99,8 @@ export default class AsteroidView extends React.Component {
 											.miss_distance.kilometers
 									}
 									&nbsp;kilometers
-								</p>
-								<p>
+								</h4>
+								<h4>
 									Estimated Diameter: &nbsp;
 									{
 										this.props.estimated_diameter.miles
@@ -119,7 +122,7 @@ export default class AsteroidView extends React.Component {
 											.estimated_diameter_max
 									}
 									&nbsp;miles
-								</p>
+								</h4>
 							</div>
 							<div className="modal-footer">
 								<button
