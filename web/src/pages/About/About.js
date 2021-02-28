@@ -37,14 +37,14 @@ export default function About() {
 				</h4>
 				<h4></h4>
 				<h4>
-					Credit to NASA for NeoWs API:{" "}
+					Credit to NASA for NeoWs API:
 					<a href="https://api.nasa.gov" target="_blank">
 						api.nasa.gov
 					</a>
 				</h4>
 
 				<h4>
-					Generated graphs from the{" "}
+					Generated graphs from
 					<a href="https://ssd.jpl.nasa.gov/sbdb.cgi" target="_blank">
 						JPL
 					</a>
