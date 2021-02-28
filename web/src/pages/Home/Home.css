@@ -2,3 +2,14 @@ h2 {
 	text-align: center;
 	font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;
 }
+.home_main_container {
+	padding-top: 50px;
+	padding-left: 40px;
+	padding-right: 40px;
+	text-align: center;
+	color: white;
+}
+.loading_gif {
+	width: 80%;
+	max-width: 250px;
+}

@@ -44,15 +44,25 @@ export default class Home extends React.Component {
 		}
 		return (
 			<div>
-				<div
-					style={{
-						paddingTop: "50px",
-						paddingLeft: "40px",
-						paddingRight: "40px",
-					}}
-				>
+				<div class="home_main_container">
 					<div id="all_occurences_container" className="row">
-						{occurences_ui}
+						{occurences_ui.length > 0 ? (
+							occurences_ui
+						) : (
+							<div>
+								{/* <h2>Loading...</h2> */}
+								<img
+									src="/loading.gif"
+									class="loading_gif"
+									alt="Loading..."
+								/>
+
+								<h3>
+									If asteroid occurences dont appear within 10
+									seconds, reload the page.
+								</h3>
+							</div>
+						)}
 					</div>
 				</div>
 			</div>
