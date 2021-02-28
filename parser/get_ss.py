@@ -47,9 +47,12 @@ def get_ss_by_url(url, filename):
     img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     im_pil = Image.fromarray(img)
 
-    im_pil.paste(overlayright, (709,0))
-    im_pil.paste(overlayleft, (0,0))
-    im_pil.save(filename)
+    text_img = Image.new('RGBA', im_pil.size, (0, 0, 0, 0))
+    text_img.paste(im_pil, (0,0))
+    text_img.paste(overlayright, (642,0), mask=overlayright)
+    
+    text_img.paste(overlayleft, (0,0))
+    text_img.save(filename)
 
 if __name__ == "__main__":
     url = "https://ssd.jpl.nasa.gov/sbdb.cgi?sstr=54100581"
