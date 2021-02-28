@@ -33,6 +33,7 @@ export default class Home extends React.Component {
 				<AsteroidView
 					close_approach_data={occurence.close_approach_data}
 					key={occurence.neo_reference_id}
+					id={occurence.neo_reference_id}
 					name={occurence.name}
 					img={occurence.graph_ss_url}
 					estimated_diameter={occurence.estimated_diameter}

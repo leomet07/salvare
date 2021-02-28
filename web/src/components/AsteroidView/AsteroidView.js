@@ -16,6 +16,8 @@ export default class AsteroidView extends React.Component {
 		console.log(close_approach_date_full);
 		close_approach_date_full =
 			month + " " + date + ", " + year + " at " + time;
+
+		console.log(this.props.img);
 		return (
 			<div className="col container_a col-sm-3">
 				<div className="card text-black bg-dark">
@@ -36,7 +38,7 @@ export default class AsteroidView extends React.Component {
 							<button
 								className="btn btn-primary"
 								data-bs-toggle="modal"
-								data-bs-target="#exampleModal"
+								data-bs-target={"#" + "neo" + this.props.id}
 								type="button"
 							>
 								Learn More
@@ -44,19 +46,23 @@ export default class AsteroidView extends React.Component {
 						</p>
 					</div>
 				</div>
+
 				<div
 					className="modal fade"
-					id="exampleModal"
+					id={"neo" + this.props.id}
 					tabIndex="-1"
-					aria-labelledby="exampleModalLabel"
+					aria-labelledby={this.props.id + "Label"}
 					aria-hidden="true"
 				>
 					<div className="modal-dialog modal-fullscreen">
-						<div className="modal-content">
+						<div
+							className="modal-content"
+							style={{ "text-align": "center" }}
+						>
 							<div className="modal-header">
 								<h5
 									className="modal-title"
-									id="exampleModalLabel"
+									id={"neo" + this.props.id + "Label"}
 								>
 									{this.props.name}
 								</h5>
@@ -72,7 +78,11 @@ export default class AsteroidView extends React.Component {
 								style={{ color: "black" }}
 							>
 								<h2>{this.props.name}</h2>
-								<img src={this.props.img}></img>
+								<img alt="big_graph" src={this.props.img}></img>
+								<h4>
+									Closest Approach date: &nbsp;
+									{close_approach_date_full}
+								</h4>
 								<h4>
 									Relative Velocity: &nbsp;
 									{
